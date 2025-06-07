@@ -212,7 +212,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"damage",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 2.0,
@@ -366,8 +366,9 @@ script = ExtResource("1_3qgux")
 texture_filter = 1
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_pa7ha")
-animation = &"attack"
+animation = &"damage"
 autoplay = "default"
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.5, 18)

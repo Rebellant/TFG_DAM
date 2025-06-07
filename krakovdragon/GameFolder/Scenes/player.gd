@@ -32,6 +32,7 @@ func attack():
 
 func take_damage(damage_amount : int):
 	if can_take_damage:
+		$AnimatedSprite2D.play("damage")	
 		GameManager.player_health -= damage_amount
 		GameManager.health_changed.emit()
 		if GameManager.player_health <= 0:

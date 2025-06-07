@@ -416,7 +416,7 @@ texture = ExtResource("1_1vuni")
 [sub_resource type="TileSet" id="TileSet_bogm3"]
 sources/0 = SubResource("TileSetAtlasSource_2w5os")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eisrp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_raeaw"]
 texture = ExtResource("2_quu0i")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -568,7 +568,7 @@ texture = ExtResource("2_quu0i")
 11:15/0 = 0
 12:15/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d56gm"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sh3yv"]
 texture = ExtResource("1_1vuni")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1170,8 +1170,8 @@ texture = ExtResource("1_1vuni")
 
 [sub_resource type="TileSet" id="TileSet_15na0"]
 physics_layer_0/collision_layer = 1
-sources/5 = SubResource("TileSetAtlasSource_d56gm")
-sources/0 = SubResource("TileSetAtlasSource_eisrp")
+sources/5 = SubResource("TileSetAtlasSource_sh3yv")
+sources/0 = SubResource("TileSetAtlasSource_raeaw")
 
 [node name="TileMapLayer" type="TileMapLayer"]
 tile_set = SubResource("TileSet_bogm3")
