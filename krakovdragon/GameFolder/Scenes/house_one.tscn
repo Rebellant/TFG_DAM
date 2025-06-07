@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://babwsry04navw"]
+
+[ext_resource type="Texture2D" uid="uid://cyuakolsfryhe" path="res://assetsGodot/texturePacks/casas/houses.png" id="1_vnsi7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgjy8"]
+atlas = ExtResource("1_vnsi7")
+region = Rect2(0, 0, 225, 272)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w4vyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgjy8")
+}],
+"loop": true,
+"name": &"house_one",
+"speed": 5.0
+}]
+
+[node name="House_one" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-33.25, -27)
+scale = Vector2(0.704444, 0.801471)
+sprite_frames = SubResource("SpriteFrames_w4vyp")
+animation = &"house_one"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

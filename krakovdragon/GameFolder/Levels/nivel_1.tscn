@@ -1,0 +1,632 @@
+[gd_scene load_steps=42 format=3 uid="uid://dd8ejsh4wh40j"]
+
+[ext_resource type="Texture2D" uid="uid://3lpannklwlp5" path="res://assetsGodot/Free/Traps/Platforms/Grey Off.png" id="1_66x5k"]
+[ext_resource type="Script" path="res://GameFolder/Scenes/aplastador.gd" id="2_sjkh8"]
+[ext_resource type="Texture2D" uid="uid://bvp3k0iqrb7c7" path="res://assetsGodot/Free/Traps/Spike Head/Idle.png" id="3_7w82o"]
+[ext_resource type="PackedScene" uid="uid://8428bvvq2m8e" path="res://GameFolder/Enemies/spikes.tscn" id="4_eq7wr"]
+[ext_resource type="PackedScene" uid="uid://dg5k1bl4q80fr" path="res://GameFolder/Scenes/Player.tscn" id="5_rky21"]
+[ext_resource type="PackedScene" uid="uid://db60a5ndryhwl" path="res://GameFolder/Scenes/checkpoint.tscn" id="6_i2an8"]
+[ext_resource type="PackedScene" uid="uid://2ueeb5c3w1t5" path="res://GameFolder/items/coin.tscn" id="7_5viod"]
+[ext_resource type="PackedScene" uid="uid://b3ae2isvgxgw" path="res://GameFolder/Scenes/chest.tscn" id="10_b0v0q"]
+[ext_resource type="PackedScene" uid="uid://biieo5b8jkxeu" path="res://GameFolder/Scenes/mushroom.tscn" id="11_pn3xc"]
+[ext_resource type="PackedScene" uid="uid://b5rsc6cv53h4v" path="res://GameFolder/Scenes/tutorial.tscn" id="12_q2hhp"]
+[ext_resource type="PackedScene" uid="uid://bwgxf1una5ghh" path="res://GameFolder/Scenes/npc.tscn" id="13_vb0vs"]
+[ext_resource type="PackedScene" uid="uid://xqxthxv3q4cg" path="res://GameFolder/Scenes/ui_manager.tscn" id="14_blqu3"]
+[ext_resource type="PackedScene" uid="uid://dp81fuax0jmoc" path="res://GameFolder/Scenes/level_portal.tscn" id="14_mw7gx"]
+[ext_resource type="PackedScene" uid="uid://bh0f6lxw331ob" path="res://GameFolder/Scenes/falling_spikes.tscn" id="15_cyg6t"]
+[ext_resource type="PackedScene" uid="uid://d0skye4u5dbmd" path="res://GameFolder/Scenes/health_up.tscn" id="15_mhrgi"]
+
+[sub_resource type="Curve2D" id="Curve2D_g2lnb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2230, -268, 0, 0, 0, 0, 2230, -268, 0, 0, 0, 0, 2229, -384, 0, 0, 0, 0, 2230, -268)
+}
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of8vi"]
+size = Vector2(9.96527, 107.022)
+
+[sub_resource type="Animation" id="Animation_lpmct"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_srbth"]
+resource_name = "move"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5l5k"]
+_data = {
+"RESET": SubResource("Animation_lpmct"),
+"move": SubResource("Animation_srbth")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_tehto"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 294, -78, 0, 0, 0, 0, 293, -48, 0, 0, 0, 0, 293, -33, 0, 0, 0, 0, 293, -20, 0, 0, 0, 0, 292, 39)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce4v7"]
+size = Vector2(36.0118, 37.5293)
+
+[sub_resource type="Animation" id="Animation_gpers"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_o0ogm"]
+resource_name = "ruta"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.73333, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_abowo"]
+resource_name = "ruta33"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96667, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1985, 0.9889]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txsux"]
+_data = {
+"RESET": SubResource("Animation_gpers"),
+"ruta": SubResource("Animation_o0ogm"),
+"ruta33": SubResource("Animation_abowo")
+}
+
+[sub_resource type="Animation" id="Animation_12411"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6hxvs"]
+resource_name = "ruta2"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.46667, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6beg6"]
+_data = {
+"RESET": SubResource("Animation_12411"),
+"ruta2": SubResource("Animation_6hxvs")
+}
+
+[sub_resource type="Animation" id="Animation_ktk83"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vlofh"]
+resource_name = "ruta34"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3tfs"]
+_data = {
+"RESET": SubResource("Animation_ktk83"),
+"ruta34": SubResource("Animation_vlofh")
+}
+
+[sub_resource type="Animation" id="Animation_11s6c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_13nys"]
+resource_name = "ruta4"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jd5vo"]
+_data = {
+"RESET": SubResource("Animation_11s6c"),
+"ruta4": SubResource("Animation_13nys")
+}
+
+[sub_resource type="Animation" id="Animation_cko5j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uww64"]
+resource_name = "ruta5"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_schs1"]
+_data = {
+"RESET": SubResource("Animation_cko5j"),
+"ruta5": SubResource("Animation_uww64")
+}
+
+[sub_resource type="Animation" id="Animation_msroy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_i3vp1"]
+resource_name = "ruta6"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bt5tp"]
+_data = {
+"RESET": SubResource("Animation_msroy"),
+"ruta6": SubResource("Animation_i3vp1")
+}
+
+[node name="nivel_1" type="Node2D"]
+
+[node name="Plataforma" type="Path2D" parent="."]
+curve = SubResource("Curve2D_g2lnb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Plataforma"]
+position = Vector2(2230, -267.688)
+rotation = -1.57942
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Plataforma/PathFollow2D"]
+position = Vector2(0, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma/PathFollow2D/CharacterBody2D"]
+modulate = Color(1, 0.502991, 0.303228, 1)
+position = Vector2(10.059, -13.5244)
+rotation = -4.71239
+scale = Vector2(3.30737, 1.83024)
+texture = ExtResource("1_66x5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma/PathFollow2D/CharacterBody2D"]
+position = Vector2(9.36282, -12.9609)
+shape = SubResource("RectangleShape2D_of8vi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforma"]
+libraries = {
+"": SubResource("AnimationLibrary_u5l5k")
+}
+autoplay = "move"
+
+[node name="rutaAplastador" type="Path2D" parent="."]
+position = Vector2(39, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador"]
+position = Vector2(294, -78)
+rotation = 1.60412
+loop = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("2_sjkh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("3_7w82o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador"]
+libraries = {
+"": SubResource("AnimationLibrary_txsux")
+}
+autoplay = "ruta"
+
+[node name="rutaAplastador2" type="Path2D" parent="."]
+position = Vector2(138, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador2"]
+position = Vector2(294, -78)
+rotation = 1.60412
+loop = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador2/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("2_sjkh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador2/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("3_7w82o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador2/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador2"]
+libraries = {
+"": SubResource("AnimationLibrary_6beg6")
+}
+autoplay = "ruta2"
+
+[node name="rutaAplastador3" type="Path2D" parent="."]
+position = Vector2(265, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador3"]
+position = Vector2(294, -78)
+rotation = 1.60412
+rotates = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador3/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("2_sjkh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador3/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("3_7w82o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador3/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador3"]
+libraries = {
+"": SubResource("AnimationLibrary_h3tfs")
+}
+autoplay = "ruta34"
+
+[node name="rutaAplastador4" type="Path2D" parent="."]
+position = Vector2(395, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador4"]
+position = Vector2(294, -78)
+rotation = 1.60412
+loop = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador4/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("2_sjkh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador4/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("3_7w82o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador4/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador4"]
+libraries = {
+"": SubResource("AnimationLibrary_jd5vo")
+}
+autoplay = "ruta4"
+
+[node name="rutaAplastador5" type="Path2D" parent="."]
+position = Vector2(646, 3)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador5"]
+position = Vector2(294, -78)
+rotation = 1.60412
+loop = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador5/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("2_sjkh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador5/PathFollow2D/aplastador"]
+position = Vector2(113.095, 27.1854)
+rotation = 0.146608
+texture = ExtResource("3_7w82o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador5/PathFollow2D/aplastador"]
+position = Vector2(114.088, 27.3044)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador5"]
+libraries = {
+"": SubResource("AnimationLibrary_schs1")
+}
+autoplay = "ruta5"
+
+[node name="rutaAplastador6" type="Path2D" parent="."]
+position = Vector2(512, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador6"]
+position = Vector2(294, -78)
+rotation = 1.60412
+loop = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador6/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("2_sjkh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador6/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("3_7w82o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador6/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador6"]
+libraries = {
+"": SubResource("AnimationLibrary_bt5tp")
+}
+autoplay = "ruta6"
+
+[node name="spikes" parent="." instance=ExtResource("4_eq7wr")]
+position = Vector2(2222, -263)
+monitorable = false
+
+[node name="Player" parent="." instance=ExtResource("5_rky21")]
+position = Vector2(1298, 6)
+
+[node name="checkpoint" parent="." instance=ExtResource("6_i2an8")]
+position = Vector2(1200, 2)
+
+[node name="coin_holder" type="Node2D" parent="."]
+
+[node name="Coin" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(1112, -44)
+
+[node name="Coin6" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(620, -55)
+
+[node name="Coin7" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(619, -26)
+
+[node name="Coin8" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(619, 4)
+
+[node name="Coin9" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(871, -53)
+
+[node name="Coin10" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(871, -24)
+
+[node name="Coin11" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(871, 6)
+
+[node name="Coin2" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(1092, -23)
+
+[node name="Coin3" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(1136, -25)
+
+[node name="Coin4" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(1143, -51)
+
+[node name="Coin5" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(1083, -47)
+
+[node name="Coin12" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(377, -61)
+
+[node name="Coin13" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(378, -27)
+
+[node name="Coin14" parent="coin_holder" instance=ExtResource("7_5viod")]
+position = Vector2(377, 1)
+
+[node name="Chest" parent="." instance=ExtResource("10_b0v0q")]
+z_index = 1
+z_as_relative = false
+position = Vector2(2203, -183)
+
+[node name="Mushroom" parent="." instance=ExtResource("11_pn3xc")]
+position = Vector2(1675, -97)
+
+[node name="checkpoint2" parent="." instance=ExtResource("6_i2an8")]
+position = Vector2(233, 3)
+
+[node name="World_Tutorial" parent="." instance=ExtResource("12_q2hhp")]
+z_index = -1
+position = Vector2(5, 1)
+
+[node name="NPC" parent="." instance=ExtResource("13_vb0vs")]
+position = Vector2(1899, -682)
+
+[node name="level_portal" parent="." instance=ExtResource("14_mw7gx")]
+position = Vector2(2285, -684)
+
+[node name="FallingSpikes" parent="." instance=ExtResource("15_cyg6t")]
+position = Vector2(1107, -105)
+
+[node name="UI_Manager" parent="." instance=ExtResource("14_blqu3")]
+
+[node name="HealthUp" parent="." instance=ExtResource("15_mhrgi")]
+position = Vector2(2030, -148)
+
+[node name="HealthUp2" parent="." instance=ExtResource("15_mhrgi")]
+position = Vector2(2290, -141)

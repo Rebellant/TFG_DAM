@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://2ueeb5c3w1t5"]
+
+[ext_resource type="Script" path="res://GameFolder/items/coin.gd" id="1_8dmta"]
+[ext_resource type="Texture2D" uid="uid://ba2dahgw4l20m" path="res://assetsGodot/objetos/coins/Coins/[1] Gold/Full Spritesheet.png" id="1_f3yxi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbeo5"]
+atlas = ExtResource("1_f3yxi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf4ti"]
+atlas = ExtResource("1_f3yxi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5cqv"]
+atlas = ExtResource("1_f3yxi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmrqg"]
+atlas = ExtResource("1_f3yxi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvhp5"]
+atlas = ExtResource("1_f3yxi")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxf0i"]
+atlas = ExtResource("1_f3yxi")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jml1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbeo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf4ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5cqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmrqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvhp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxf0i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8te8k"]
+radius = 6.08276
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_8dmta")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.19209e-07, 0)
+scale = Vector2(0.59375, 0.59375)
+sprite_frames = SubResource("SpriteFrames_jml1k")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8te8k")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://mjleyycs4jej"]
+
+[ext_resource type="Script" path="res://GameFolder/Scenes/options.gd" id="1_efujj"]
+[ext_resource type="VideoStream" path="res://video/PortadaOGV_EXT.ogv" id="2_mtvux"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sobsh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbvcm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c072"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_efujj")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_mtvux")
+autoplay = true
+loop = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.5
+offset_top = -153.5
+offset_right = 183.5
+offset_bottom = 153.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 36
+
+[node name="volumen" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_sobsh")
+text = "Volumen"
+
+[node name="resolucion" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_wbvcm")
+text = "Resolucion
+"
+
+[node name="atrás" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0c072")
+text = "Atras
+"
+
+[connection signal="pressed" from="VBoxContainer/volumen" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/resolucion" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/atrás" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/atrás" to="." method="_on_atrás_pressed"]

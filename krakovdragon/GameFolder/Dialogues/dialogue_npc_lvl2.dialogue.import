@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://cu556cvhmjn5y"
+path="res://.godot/imported/dialogue_npc_lvl2.dialogue-bcded35041ed0d07fb3f8b1ea00afdd0.tres"
+
+[deps]
+
+source_file="res://GameFolder/Dialogues/dialogue_npc_lvl2.dialogue"
+dest_files=["res://.godot/imported/dialogue_npc_lvl2.dialogue-bcded35041ed0d07fb3f8b1ea00afdd0.tres"]
+
+[params]
+
+defaults=true

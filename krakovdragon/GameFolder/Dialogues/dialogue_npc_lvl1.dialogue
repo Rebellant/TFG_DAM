@@ -1,0 +1,21 @@
+~ start
+if not GameManager.knows_npc_lvl1
+	set GameManager.level_portal_active = true
+	set GameManager.knows_npc_lvl1 = true
+	Nathan: Menos mal que le encuentro noble caballero..
+	Lord Bobius: ¡Nathan! ¿Que ha ocurrido aquí? Y lo más importante ¿Donde está todo el mundo?
+	Nathan: El Dragón.. Alguien o algo lo ha despertado y ha vuelto para arrasar con todo a su paso, soy de los pocos que no huyeron y quedaron con vida tras el ataque.
+	Nathan: Necesitamos de su ayuda, pues solo usted puede seguir los pasos de tu antecesor, y hacer que el dragón vuelva a conciliar el sueño eterno, y castigar a aquellos que lo despertaron..
+	Lord Bobius: Y como pensáis que un simple escudero como yo, podría derrotar a semejante bestia.. Es un disparate!!
+	Nathan: [wave]Lord Bobius..[/wave] No es al dragón al que ha de enfrentar, sino a aquel que su sueño interrumpe para poder sembrar el mal.
+	Nathan: Ha de atravesar la grieta verde que se encuentra en dirección opuesta al pueblo, y hallar a la bruja de la cueva de las raízes desoladas, estoy seguro de que esa vieja arpía sabe más de lo que nos quiere hacer creer, eso si, barato no le saldrá, ten tome estas monedas.. Que la suerte esté con vos mi Lord..
+	-  Gracias Nathan! Me será de mucha ayuda..(+50 oro)
+		set GameManager.gain_coins(50)
+	- No será necesario, pues usted lo necesita más que yo, no le queda nada..
+		=> END
+else
+	Nathan: ¿Qué desea mi Lord?
+	-  ¿Dónde puedo encontrar la grieta?
+		Nathan: Detrás del carro, siga recto y la hallará
+	- Nada, gracias!
+		=> END

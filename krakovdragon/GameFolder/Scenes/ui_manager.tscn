@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://xqxthxv3q4cg"]
+
+[ext_resource type="Texture2D" uid="uid://xaknwi7mcm66" path="res://assetsGodot/objetos/coins/Coins/[1] Gold/1.png" id="1_h76hg"]
+[ext_resource type="Script" path="res://GameFolder/Scripts/UI/ui_manager.gd" id="1_wjeal"]
+[ext_resource type="Texture2D" uid="uid://bcq1h6y33utnf" path="res://assetsGodot/UI/healthbar/healthbarUnder.png" id="3_d8ivf"]
+[ext_resource type="Texture2D" uid="uid://dcxt04p2bwp51" path="res://assetsGodot/UI/healthbar/healthbarProgress.png" id="4_mj0vu"]
+
+[node name="UI_Manager" type="CanvasLayer"]
+script = ExtResource("1_wjeal")
+
+[node name="CoinIcon" type="TextureRect" parent="."]
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 32.0
+offset_bottom = 29.0
+texture = ExtResource("1_h76hg")
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinDisplay" type="Label" parent="."]
+offset_left = 36.0
+offset_right = 76.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.955303, 0.8659, 0.383928, 1)
+theme_override_colors/font_shadow_color = Color(0.768457, 0.601925, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 24
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 9.0
+offset_top = 32.0
+offset_right = 177.0
+offset_bottom = 87.0
+texture_under = ExtResource("3_d8ivf")
+texture_progress = ExtResource("4_mj0vu")

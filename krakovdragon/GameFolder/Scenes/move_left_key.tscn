@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8r35obsvlasg"]
+
+[ext_resource type="Texture2D" uid="uid://bgxrhldq8dm3w" path="res://assetsGodot/ayuda/SimpleKeys/Classic/Dark/Spritesheets/A.png" id="1_c7dm7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1exw"]
+atlas = ExtResource("1_c7dm7")
+region = Rect2(0, 0, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17mas"]
+atlas = ExtResource("1_c7dm7")
+region = Rect2(17, 0, 17, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ir1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1exw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17mas")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0t8pd"]
+shadow_size = 0
+shadow_color = Color(0.18, 0.18, 0.18, 0)
+
+[node name="move_left" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3ir1k")
+autoplay = "default"
+frame_progress = 0.256348
+
+[node name="Label" type="Label" parent="."]
+offset_left = -41.0
+offset_top = 3.0
+offset_right = 40.0
+offset_bottom = 26.0
+text = "Move Left !"
+label_settings = SubResource("LabelSettings_0t8pd")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://30burr235u6t"]
+
+[ext_resource type="Texture2D" uid="uid://cryxfm0kfylf0" path="res://assetsGodot/ayuda/SimpleKeys/Classic/Dark/Spritesheets/SPACE.png" id="1_u46dk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy0ow"]
+atlas = ExtResource("1_u46dk")
+region = Rect2(0, 0, 67, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rk0g"]
+atlas = ExtResource("1_u46dk")
+region = Rect2(67, 0, 67, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6ha4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy0ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rk0g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m6u4i"]
+shadow_size = 0
+shadow_color = Color(0.18, 0.18, 0.18, 0)
+
+[node name="jump_key" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n6ha4")
+autoplay = "default"
+frame_progress = 0.977695
+
+[node name="Label" type="Label" parent="."]
+offset_left = -23.0
+offset_top = 8.0
+offset_right = 29.0
+offset_bottom = 31.0
+text = "Jump !"
+label_settings = SubResource("LabelSettings_m6u4i")

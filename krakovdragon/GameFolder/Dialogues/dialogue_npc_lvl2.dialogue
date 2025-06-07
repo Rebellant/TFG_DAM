@@ -1,0 +1,32 @@
+~ start
+if not GameManager.knows_npc_lvl2
+	set GameManager.knows_npc_lvl2 = true
+	Zareth: Así que tú eres el escudero que viene a buscar respuestas... Hueles a miedo, pero también a destino.
+	Lord Bobius: Vengo en nombre de Nathan. Me ha dicho que usted puede ayudarme con el asunto del dragón.
+	Zareth: ¿El dragón? ¡Ja! Esa bestia no es el verdadero mal, tan solo un peón que duerme y despierta al son de otro.
+	Zareth: El verdadero culpable es el hechicero [wave]Malthyros..[/wave], quien osó perturbar el sueño del Guardián para desatar el caos y reclamar su poder ancestral.
+	Lord Bobius: ¿Malthyros...? Nunca había oído ese nombre.
+	Zareth: Eso es porque quienes lo pronunciaban ya no están para contarlo. Vive oculto en una mazmorra al otro lado de la grieta... Un lugar que no figura en mapa alguno.
+	Zareth: Puedo llevarte allí, pero no soy guía gratuita. El precio es justo: **20 monedas de oro**.
+	- Tome las monedas. Lléveme allí de inmediato. (-20 monedas)
+		set GameManager.take_coins(20)
+		Zareth: Sabia decisión. Que tus huesos no se quiebren antes de enfrentar al verdadero mal... *[ríe siniestramente y se esfuma]*
+		set GameManager.dissapear_npc2 = true
+		set GameManager.level_portal_active = true
+		=> END
+	- No tengo el oro... volveré cuando lo consiga.
+		Zareth: Entonces vete. La oscuridad no espera, y tu duda solo la fortalece.
+		=> END
+if GameManager.knows_npc_lvl2 &&  GameManager.coins < 20
+	Zareth: ¿Vienes buscando respuestas sin traer pago? Ni el mal es tan descarado. Vuelve cuando tengas **20 monedas** si realmente deseas liberar a tu pueblo del mal.
+	=> END
+if GameManager.knows_npc_lvl2 &&  GameManager.coins >= 20
+	Zareth: ¿Y bien joven escudero?
+	- Tome las monedas. Lléveme allí de inmediato. (-20 monedas)
+		set GameManager.take_coins(20)
+		Zareth: Sabia decisión. Que tus huesos no se quiebren antes de enfrentar al verdadero mal... *[ríe siniestramente y se esfuma]*
+		set GameManager.dissapear_npc2 = true
+		set GameManager.level_portal_active = true
+	- Todavía no tengo las monedas..
+		Zareth: Ya sabes lo que busco.. 20 monedas y te llevaré hacia la mazmorra, hasta entonces pues.
+		=> END

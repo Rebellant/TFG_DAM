@@ -1,0 +1,598 @@
+[gd_scene load_steps=38 format=3 uid="uid://dd8ejsh4wh40j"]
+
+[ext_resource type="PackedScene" uid="uid://dg5k1bl4q80fr" path="res://GameFolder/Scenes/Player.tscn" id="3_ylxwo"]
+[ext_resource type="PackedScene" uid="uid://cfts8258m3gwp" path="res://GameFolder/Scenes/world_1.tscn" id="7_qsrdj"]
+[ext_resource type="PackedScene" uid="uid://db60a5ndryhwl" path="res://GameFolder/Scenes/checkpoint.tscn" id="8_1e4d7"]
+[ext_resource type="PackedScene" uid="uid://4cosjl8xtcr0" path="res://GameFolder/Scenes/enemy.tscn" id="8_5vmak"]
+[ext_resource type="PackedScene" uid="uid://2ueeb5c3w1t5" path="res://GameFolder/items/coin.tscn" id="9_rg5uv"]
+[ext_resource type="Texture2D" uid="uid://xaknwi7mcm66" path="res://assetsGodot/coins/Coins/[1] Gold/1.png" id="10_27ibr"]
+[ext_resource type="Script" path="res://GameFolder/Scripts/UI/ui_manager.gd" id="10_85e3t"]
+[ext_resource type="Texture2D" uid="uid://3lpannklwlp5" path="res://assetsGodot/Free/Traps/Platforms/Grey Off.png" id="13_t1wfv"]
+[ext_resource type="PackedScene" uid="uid://8428bvvq2m8e" path="res://GameFolder/Enemies/spikes.tscn" id="16_ih7fh"]
+[ext_resource type="Script" path="res://GameFolder/Scenes/aplastador.gd" id="16_xadda"]
+[ext_resource type="Texture2D" uid="uid://bvp3k0iqrb7c7" path="res://assetsGodot/Free/Traps/Spike Head/Idle.png" id="16_xcde0"]
+
+[sub_resource type="Curve2D" id="Curve2D_g2lnb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2230, -268, 0, 0, 0, 0, 2230, -268, 0, 0, 0, 0, 2229, -384, 0, 0, 0, 0, 2230, -268)
+}
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of8vi"]
+size = Vector2(9.96527, 107.022)
+
+[sub_resource type="Animation" id="Animation_lpmct"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_srbth"]
+resource_name = "move"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5l5k"]
+_data = {
+"RESET": SubResource("Animation_lpmct"),
+"move": SubResource("Animation_srbth")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_tehto"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 294, -78, 0, 0, 0, 0, 293, -48, 0, 0, 0, 0, 293, -33, 0, 0, 0, 0, 292, 39)
+}
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce4v7"]
+size = Vector2(37, 38)
+
+[sub_resource type="Animation" id="Animation_gpers"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../rutaAplastador/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_o0ogm"]
+resource_name = "ruta"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../rutaAplastador/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.73333, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_abowo"]
+resource_name = "ruta33"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96667, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1985, 0.9889]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txsux"]
+_data = {
+"RESET": SubResource("Animation_gpers"),
+"ruta": SubResource("Animation_o0ogm"),
+"ruta33": SubResource("Animation_abowo")
+}
+
+[sub_resource type="Animation" id="Animation_12411"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6hxvs"]
+resource_name = "ruta2"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.46667, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6beg6"]
+_data = {
+"RESET": SubResource("Animation_12411"),
+"ruta2": SubResource("Animation_6hxvs")
+}
+
+[sub_resource type="Animation" id="Animation_ktk83"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vlofh"]
+resource_name = "ruta34"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3tfs"]
+_data = {
+"RESET": SubResource("Animation_ktk83"),
+"ruta34": SubResource("Animation_vlofh")
+}
+
+[sub_resource type="Animation" id="Animation_11s6c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_13nys"]
+resource_name = "ruta4"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jd5vo"]
+_data = {
+"RESET": SubResource("Animation_11s6c"),
+"ruta4": SubResource("Animation_13nys")
+}
+
+[sub_resource type="Animation" id="Animation_cko5j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uww64"]
+resource_name = "ruta5"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_schs1"]
+_data = {
+"RESET": SubResource("Animation_cko5j"),
+"ruta5": SubResource("Animation_uww64")
+}
+
+[sub_resource type="Animation" id="Animation_msroy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_i3vp1"]
+resource_name = "ruta6"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bt5tp"]
+_data = {
+"RESET": SubResource("Animation_msroy"),
+"ruta6": SubResource("Animation_i3vp1")
+}
+
+[node name="Nivel1" type="Node2D"]
+
+[node name="Plataforma" type="Path2D" parent="."]
+curve = SubResource("Curve2D_g2lnb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Plataforma"]
+position = Vector2(2230, -267.688)
+rotation = -1.57942
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Plataforma/PathFollow2D"]
+position = Vector2(0, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma/PathFollow2D/CharacterBody2D"]
+modulate = Color(1, 0.502991, 0.303228, 1)
+position = Vector2(10.059, -13.5244)
+rotation = -4.71239
+scale = Vector2(3.30737, 1.83024)
+texture = ExtResource("13_t1wfv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma/PathFollow2D/CharacterBody2D"]
+position = Vector2(9.36282, -12.9609)
+shape = SubResource("RectangleShape2D_of8vi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforma"]
+libraries = {
+"": SubResource("AnimationLibrary_u5l5k")
+}
+autoplay = "move"
+
+[node name="rutaAplastador" type="Path2D" parent="."]
+position = Vector2(39, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador"]
+position = Vector2(294, -78)
+rotation = 1.60412
+loop = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("16_xadda")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("16_xcde0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador"]
+libraries = {
+"": SubResource("AnimationLibrary_txsux")
+}
+autoplay = "ruta"
+
+[node name="rutaAplastador2" type="Path2D" parent="."]
+position = Vector2(138, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador2"]
+position = Vector2(294, -78)
+rotation = 1.60412
+loop = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador2/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("16_xadda")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador2/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("16_xcde0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador2/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador2"]
+libraries = {
+"": SubResource("AnimationLibrary_6beg6")
+}
+autoplay = "ruta2"
+
+[node name="rutaAplastador3" type="Path2D" parent="."]
+position = Vector2(265, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador3"]
+position = Vector2(294, -78)
+rotation = 1.60412
+rotates = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador3/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("16_xadda")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador3/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("16_xcde0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador3/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador3"]
+libraries = {
+"": SubResource("AnimationLibrary_h3tfs")
+}
+autoplay = "ruta34"
+
+[node name="rutaAplastador4" type="Path2D" parent="."]
+position = Vector2(395, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador4"]
+position = Vector2(294, -78)
+rotation = 1.60412
+loop = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador4/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("16_xadda")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador4/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("16_xcde0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador4/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador4"]
+libraries = {
+"": SubResource("AnimationLibrary_jd5vo")
+}
+autoplay = "ruta4"
+
+[node name="rutaAplastador5" type="Path2D" parent="."]
+position = Vector2(633, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador5"]
+position = Vector2(294, -78)
+rotation = 1.60412
+loop = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador5/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("16_xadda")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador5/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("16_xcde0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador5/PathFollow2D/aplastador"]
+position = Vector2(112.968, 30.1928)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador5"]
+libraries = {
+"": SubResource("AnimationLibrary_schs1")
+}
+autoplay = "ruta5"
+
+[node name="rutaAplastador6" type="Path2D" parent="."]
+visible = false
+position = Vector2(512, 0)
+curve = SubResource("Curve2D_tehto")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="rutaAplastador6"]
+position = Vector2(294, -78)
+rotation = 1.60412
+loop = false
+
+[node name="aplastador" type="Area2D" parent="rutaAplastador6/PathFollow2D" groups=["matables"]]
+position = Vector2(-35.6574, 116.78)
+rotation = -1.72345
+collision_mask = 2
+script = ExtResource("16_xadda")
+
+[node name="Sprite2D" type="Sprite2D" parent="rutaAplastador6/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+texture = ExtResource("16_xcde0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rutaAplastador6/PathFollow2D/aplastador"]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_ce4v7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rutaAplastador6"]
+libraries = {
+"": SubResource("AnimationLibrary_bt5tp")
+}
+autoplay = "ruta6"
+
+[node name="spikes" parent="." instance=ExtResource("16_ih7fh")]
+position = Vector2(2222, -263)
+
+[node name="World1" parent="." instance=ExtResource("7_qsrdj")]
+z_index = -1
+position = Vector2(1, -3)
+
+[node name="enemy" parent="." instance=ExtResource("8_5vmak")]
+position = Vector2(1769, -88)
+scale = Vector2(1.2, 1.2)
+
+[node name="Player" parent="." instance=ExtResource("3_ylxwo")]
+position = Vector2(1076, 1)
+
+[node name="checkpoint" parent="." instance=ExtResource("8_1e4d7")]
+position = Vector2(1212, 0)
+
+[node name="coin_holder" type="Node2D" parent="."]
+
+[node name="Coin" parent="coin_holder" instance=ExtResource("9_rg5uv")]
+position = Vector2(1112, -44)
+
+[node name="Coin2" parent="coin_holder" instance=ExtResource("9_rg5uv")]
+position = Vector2(1092, -23)
+
+[node name="Coin3" parent="coin_holder" instance=ExtResource("9_rg5uv")]
+position = Vector2(1136, -25)
+
+[node name="Coin4" parent="coin_holder" instance=ExtResource("9_rg5uv")]
+position = Vector2(1143, -51)
+
+[node name="Coin5" parent="coin_holder" instance=ExtResource("9_rg5uv")]
+position = Vector2(1083, -47)
+
+[node name="UIManager" type="CanvasLayer" parent="."]
+script = ExtResource("10_85e3t")
+
+[node name="CoinIcon" type="TextureRect" parent="UIManager"]
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 32.0
+offset_bottom = 29.0
+texture = ExtResource("10_27ibr")
+
+[node name="CoinDisplay" type="Label" parent="UIManager"]
+offset_left = 36.0
+offset_right = 76.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.955303, 0.8659, 0.383928, 1)
+theme_override_colors/font_shadow_color = Color(0.768457, 0.601925, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 24
+text = "0"

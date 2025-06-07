@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqtxo057b8kxc"]
+
+[ext_resource type="Texture2D" uid="uid://bj7cydusnkx7x" path="res://assetsGodot/ayuda/SimpleKeys/Classic/Dark/Spritesheets/F.png" id="1_jaxfs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu7vx"]
+atlas = ExtResource("1_jaxfs")
+region = Rect2(0, 0, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4b7t"]
+atlas = ExtResource("1_jaxfs")
+region = Rect2(17, 0, 17, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_on2wv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu7vx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4b7t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_on2wv")
+autoplay = "default"
+frame_progress = 0.183781
+
+[node name="Label" type="Label" parent="."]
+offset_left = -25.0
+offset_top = 8.0
+offset_right = 29.0
+offset_bottom = 31.0
+text = "Attack!"

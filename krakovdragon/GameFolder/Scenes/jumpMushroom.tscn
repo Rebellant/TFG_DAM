@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4bca6wwc2ft4"]
+
+[ext_resource type="Script" path="res://GameFolder/Scenes/jump_mushroom.gd" id="1_57jy4"]
+[ext_resource type="Texture2D" uid="uid://dclexfxrhkpeu" path="res://assetsGodot/texturePacks/nivel_dos/pixel_art_mushroom_icons/mushrooms/mushrooms.png" id="1_oq3vp"]
+
+[node name="JumpMushroom" type="Node2D"]
+script = ExtResource("1_57jy4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(33, 75.25)
+scale = Vector2(3.66667, 8.77083)
+texture = ExtResource("1_oq3vp")
+hframes = 5
+vframes = 2
+frame = 7
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(22, 4, 40, 4, 40, 8, 44, 8, 44, 12, 48, 12, 48, 17, 51, 17, 7, 16, 7, 13, 15, 13, 15, 8, 22, 8)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

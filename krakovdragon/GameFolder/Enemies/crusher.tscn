@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmymh4jix3q2d"]
+
+[ext_resource type="Texture2D" uid="uid://bvp3k0iqrb7c7" path="res://assetsGodot/Free/Traps/Spike Head/Idle.png" id="1_imlg1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rhhf"]
+size = Vector2(37, 38)
+
+[node name="crusher" type="Area2D"]
+rotation = -0.118682
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(112.345, 31.2558)
+rotation = 0.146608
+scale = Vector2(0.96336, 1.00562)
+texture = ExtResource("1_imlg1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(113.345, 31.2558)
+rotation = 0.146608
+shape = SubResource("RectangleShape2D_2rhhf")

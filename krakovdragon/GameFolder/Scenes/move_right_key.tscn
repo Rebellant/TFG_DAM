@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu0yg2hwpgi1h"]
+
+[ext_resource type="Texture2D" uid="uid://di18dhawcji6i" path="res://assetsGodot/ayuda/SimpleKeys/Classic/Dark/Spritesheets/D.png" id="1_qrhsc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cvln"]
+atlas = ExtResource("1_qrhsc")
+region = Rect2(0, 0, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibmfh"]
+atlas = ExtResource("1_qrhsc")
+region = Rect2(17, 0, 17, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7lnh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cvln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibmfh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kfxde"]
+shadow_size = 0
+shadow_color = Color(0.18, 0.18, 0.18, 0)
+
+[node name="move_right" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w7lnh")
+autoplay = "default"
+frame_progress = 0.676419
+
+[node name="Label" type="Label" parent="."]
+offset_left = -38.0
+offset_top = 2.0
+offset_right = 53.0
+offset_bottom = 25.0
+text = "Move Right !"
+label_settings = SubResource("LabelSettings_kfxde")

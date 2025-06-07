@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgnr1ga7twn47"]
+
+[ext_resource type="Texture2D" uid="uid://cyuakolsfryhe" path="res://assetsGodot/texturePacks/casas/houses.png" id="1_ks26n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4ruv"]
+atlas = ExtResource("1_ks26n")
+region = Rect2(460, 0, 230, 272)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwf25"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4ruv")
+}],
+"loop": true,
+"name": &"house_three",
+"speed": 5.0
+}]
+
+[node name="house_three" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-37, -37.5)
+scale = Vector2(0.678261, 0.724265)
+sprite_frames = SubResource("SpriteFrames_vwf25")
+animation = &"house_three"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
