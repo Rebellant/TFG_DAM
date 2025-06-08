@@ -13,9 +13,9 @@ var player_health = 0
 var player_max_health = 180
 
 var dissapear_npc2 = false
+
+
 var final_boss_dead = false
-
-
 var coins : int
 var checkpoint_counter=0
 var player_in_lvl=1
