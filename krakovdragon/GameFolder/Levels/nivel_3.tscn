@@ -1,16 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgb720cspmhso"]
+[gd_scene load_steps=10 format=3 uid="uid://dgb720cspmhso"]
 
+[ext_resource type="Script" path="res://GameFolder/Levels/nivel_3_script.gd" id="1_8hw7u"]
 [ext_resource type="PackedScene" uid="uid://b8jevge6cxwwp" path="res://GameFolder/Worlds/world_3.tscn" id="1_76bpx"]
 [ext_resource type="PackedScene" uid="uid://xqxthxv3q4cg" path="res://GameFolder/Scenes/ui_manager.tscn" id="2_ihoa2"]
 [ext_resource type="PackedScene" uid="uid://bh0f6lxw331ob" path="res://GameFolder/Scenes/falling_spikes.tscn" id="3_kssvi"]
 [ext_resource type="PackedScene" uid="uid://db60a5ndryhwl" path="res://GameFolder/Scenes/checkpoint.tscn" id="4_8c3aw"]
 [ext_resource type="PackedScene" uid="uid://d0skye4u5dbmd" path="res://GameFolder/Scenes/health_up.tscn" id="5_h8sci"]
 [ext_resource type="PackedScene" uid="uid://diia8hv2bdlwi" path="res://GameFolder/Enemies/sprout.tscn" id="6_md0ge"]
+[ext_resource type="PackedScene" uid="uid://w42e7mhctgum" path="res://GameFolder/Enemies/necromacer.tscn" id="8_1kp3t"]
 [ext_resource type="PackedScene" uid="uid://dg5k1bl4q80fr" path="res://GameFolder/Scenes/Player.tscn" id="8_be5re"]
 
 [node name="nivel_3" type="Node2D"]
+script = ExtResource("1_8hw7u")
 
-[node name="TileMapLayer" parent="." instance=ExtResource("1_76bpx")]
+[node name="world_3" parent="." instance=ExtResource("1_76bpx")]
 
 [node name="UI_Manager" parent="." instance=ExtResource("2_ihoa2")]
 
@@ -60,4 +63,7 @@ position = Vector2(2156, -132)
 position = Vector2(1202, 99)
 
 [node name="Player" parent="." instance=ExtResource("8_be5re")]
-position = Vector2(97, 52)
+position = Vector2(95, 52)
+
+[node name="necromacer" parent="." instance=ExtResource("8_1kp3t")]
+position = Vector2(1816, -117)

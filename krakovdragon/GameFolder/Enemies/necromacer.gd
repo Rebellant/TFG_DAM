@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
 
-var speed = -60.0
+var speed = 60.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var facing_right = false
+var facing_right = true
 var player_in_area = false
-var health = 200
-var max_health = 200
+var health = 1200
+var max_health = 1200
 
 func _ready():
-	$AnimatedSprite2D.play("run")
+	$AnimationPlayer.play("run")
 
 
 func _physics_process(delta):
@@ -36,21 +36,26 @@ func _on_hitbox_area_entered(area):
 		_ready()
 		area.get_parent().take_damage(40)
 
+func take_damage(damage_amount:int):
+	health -= damage_amount
+	$AnimationPlayer.play("hurt")
+	get_node("HealthBar").update_healthbar(health,max_health)
+	if health <= 0:
+		die()
+
 func die():
+	GameManager.final_boss_dead = true
 	player_in_area = false
 	$Hitbox.monitoring = false
 	$AttackArea.monitoring = false
 	speed = 0
-	$AnimatedSprite2D.play("die")
-	await $AnimatedSprite2D.animation_finished
+	$AnimationPlayer.play("hurt")
+	await $AnimationPlayer.animation_finished
+	$AnimationPlayer.play("death")
+	await $AnimationPlayer.animation_finished
 	queue_free()
 
-func take_damage(damage_amount:int):
-	health -= damage_amount
-	$AnimatedSprite2D.play("hit")
-	get_node("HealthBar").update_healthbar(health,max_health)
-	if health <= 0:
-		die()
+
 
 func _on_attack_area_area_exited(area:):
 	player_in_area = false
@@ -58,10 +63,10 @@ func _on_attack_area_area_exited(area:):
 func _on_attack_area_area_entered(area):
 	player_in_area = true
 	if area.get_parent() is Player:
-		$AnimatedSprite2D.play("attack")
-		await $AnimatedSprite2D.animation_finished
+		$AnimationPlayer.play("ranged_attack")
+		await $AnimationPlayer.animation_finished
 		if player_in_area == true:
-			area.get_parent().take_damage(40)
+			area.get_parent().take_damage(80)
 			_ready()
 		else:
 			_ready()

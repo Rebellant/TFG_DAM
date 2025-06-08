@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 GameManager="*res://GameFolder/Scripts/Core/GameManager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+PlayerSpawner="*res://GameFolder/Scripts/Core/PlayerSpawner.gd"
+ApiManager="*res://GameFolder/Scripts/API/ApiManager.gd"
 
 [dialogue_manager]
 

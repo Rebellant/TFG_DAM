@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bufqtg00bvtxn"]
+[gd_scene load_steps=8 format=3 uid="uid://d01hqqsi8ew5u"]
 
-[ext_resource type="Script" path="res://GameFolder/Scenes/menu.gd" id="1_0nvuh"]
-[ext_resource type="VideoStream" path="res://video/PortadaOGV_EXT.ogv" id="2_xqjno"]
-[ext_resource type="Texture2D" uid="uid://ckkn7omu1it41" path="res://assetsGodot/UI/Button Pack - ok_lavender/Individual Frames/[6] Silver/[1] Normal.png" id="3_5yly4"]
-[ext_resource type="Texture2D" uid="uid://c0ib5n0mgq58n" path="res://assetsGodot/UI/Button Pack - ok_lavender/Individual Frames/[6] Silver/[2] Clicked.png" id="4_ed3w4"]
-[ext_resource type="Texture2D" uid="uid://dtj2g0dudhk4g" path="res://assetsGodot/UI/Button Pack - ok_lavender/Individual Frames/[6] Silver/[3] Hover.png" id="5_ocv4s"]
+[ext_resource type="Script" path="res://GameFolder/Scenes/play_menu.gd" id="1_7q58p"]
+[ext_resource type="VideoStream" path="res://video/PortadaOGV_EXT.ogv" id="1_l2wye"]
+[ext_resource type="Texture2D" uid="uid://ckkn7omu1it41" path="res://assetsGodot/UI/Button Pack - ok_lavender/Individual Frames/[6] Silver/[1] Normal.png" id="2_lmms7"]
+[ext_resource type="Texture2D" uid="uid://c0ib5n0mgq58n" path="res://assetsGodot/UI/Button Pack - ok_lavender/Individual Frames/[6] Silver/[2] Clicked.png" id="3_qqte7"]
+[ext_resource type="Texture2D" uid="uid://dtj2g0dudhk4g" path="res://assetsGodot/UI/Button Pack - ok_lavender/Individual Frames/[6] Silver/[3] Hover.png" id="4_4tutl"]
 
-[sub_resource type="FontFile" id="FontFile_uma2j"]
+[sub_resource type="FontFile" id="FontFile_8k16r"]
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -203,25 +203,24 @@ cache/0/61/0/underline_position = 0.0
 cache/0/61/0/underline_thickness = 0.0
 cache/0/61/0/scale = 1.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_sfbsu"]
-font = SubResource("FontFile_uma2j")
+[sub_resource type="LabelSettings" id="LabelSettings_wihsj"]
+font = SubResource("FontFile_8k16r")
 font_size = 60
 font_color = Color(0.04, 0.04, 0.04, 1)
 
-[node name="Menu" type="Control"]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0nvuh")
+script = ExtResource("1_7q58p")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-stream = ExtResource("2_xqjno")
+stream = ExtResource("1_l2wye")
 autoplay = true
 loop = true
 
@@ -240,73 +239,69 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 36
 
-[node name="btnPlay" type="TextureButton" parent="VBoxContainer"]
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_5yly4")
-texture_pressed = ExtResource("4_ed3w4")
-texture_hover = ExtResource("5_ocv4s")
+texture_normal = ExtResource("2_lmms7")
+texture_pressed = ExtResource("3_qqte7")
+texture_hover = ExtResource("4_4tutl")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/btnPlay"]
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton2"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 0
+offset_left = 2.5
+offset_top = -21.0
+offset_right = 374.5
+offset_bottom = 87.0
+text = "New Game"
+label_settings = SubResource("LabelSettings_wihsj")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_lmms7")
+texture_pressed = ExtResource("3_qqte7")
+texture_hover = ExtResource("4_4tutl")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton3"]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 0
 offset_left = 160.5
 offset_top = -20.0
 offset_right = 210.5
 offset_bottom = 88.0
-text = "Play
+text = "Continue
 "
-label_settings = SubResource("LabelSettings_sfbsu")
+label_settings = SubResource("LabelSettings_wihsj")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="btnContinuar" type="TextureButton" parent="VBoxContainer"]
+[node name="TextureButton4" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_5yly4")
-texture_pressed = ExtResource("4_ed3w4")
-texture_hover = ExtResource("5_ocv4s")
+texture_normal = ExtResource("2_lmms7")
+texture_pressed = ExtResource("3_qqte7")
+texture_hover = ExtResource("4_4tutl")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/btnContinuar"]
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton4"]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 0
 offset_left = 160.5
 offset_top = -20.0
 offset_right = 210.5
 offset_bottom = 88.0
-text = "Continuar
+text = "Back
 "
-label_settings = SubResource("LabelSettings_sfbsu")
+label_settings = SubResource("LabelSettings_wihsj")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="btnExit" type="TextureButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-texture_normal = ExtResource("3_5yly4")
-texture_pressed = ExtResource("4_ed3w4")
-texture_hover = ExtResource("5_ocv4s")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/btnExit"]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 0
-offset_left = 160.5
-offset_top = -20.0
-offset_right = 210.5
-offset_bottom = 88.0
-text = "Exit
-
-"
-label_settings = SubResource("LabelSettings_sfbsu")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[connection signal="pressed" from="VBoxContainer/btnPlay" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/btnContinuar" to="." method="_on_btn_continuar_pressed"]
-[connection signal="pressed" from="VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]

@@ -5,6 +5,8 @@ var speed = 60.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var facing_right = true
 var player_in_area = false
+var health = 200
+var max_health = 200
 
 func _ready():
 	$AnimatedSprite2D.play("run")
@@ -32,13 +34,18 @@ func _on_hit_box_area_entered(area):
 		_ready()
 		area.get_parent().take_damage(60)
 
+func take_damage(damage_amount:int):
+	health -= damage_amount
+	$AnimatedSprite2D.play("hit")
+	get_node("HealthBar").update_healthbar(health,max_health)
+	if health <= 0:
+		die()
+
 func die():
 	player_in_area = false
 	$Hitbox.monitoring = false
 	$AttackArea.monitoring = false
 	speed = 0
-	$AnimatedSprite2D.play("hit")
-	await $AnimatedSprite2D.animation_finished
 	$AnimatedSprite2D.play("die")
 	await $AnimatedSprite2D.animation_finished
 	queue_free()

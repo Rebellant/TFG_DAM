@@ -2,7 +2,7 @@ extends Node
 
 signal gained_coins(int)
 signal health_changed()
-var coins : int
+
 var current_checkpoint: Checkpoint
 var player : Player
 var is_dialogue_active = false
@@ -10,9 +10,15 @@ var level_portal_active = false
 var knows_npc_lvl1 = false
 var knows_npc_lvl2 = false
 var player_health = 0
-var player_max_health = 100
-var checkpoint_counter=0
+var player_max_health = 180
+
 var dissapear_npc2 = false
+var final_boss_dead = false
+
+
+var coins : int
+var checkpoint_counter=0
+var player_in_lvl=1
 
 func respawn_player():
 	if current_checkpoint != null:

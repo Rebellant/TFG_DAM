@@ -18,12 +18,13 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("atacar"):
 		attack()
+	print("Checkpoint actual: ",GameManager.current_checkpoint)
 
 func attack():
 	var overlaping_objects =$AttackArea.get_overlapping_areas()
 	for area in overlaping_objects:
 		if area.get_parent().is_in_group("can_die_enemy"):
-			area.get_parent().die()
+			area.get_parent().take_damage(20)
 	
 	attacking = true
 	$AnimatedSprite2D.play("attack") 

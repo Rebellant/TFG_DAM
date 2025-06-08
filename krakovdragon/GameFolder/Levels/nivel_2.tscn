@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6u3taq4nswcj"]
+[gd_scene load_steps=16 format=3 uid="uid://c6u3taq4nswcj"]
 
+[ext_resource type="Script" path="res://GameFolder/Levels/nivel_2_script.gd" id="1_4jqcd"]
 [ext_resource type="PackedScene" uid="uid://rpma3ego45ub" path="res://GameFolder/Worlds/World_2.tscn" id="1_i8n20"]
 [ext_resource type="PackedScene" uid="uid://b4bca6wwc2ft4" path="res://GameFolder/Scenes/jumpMushroom.tscn" id="2_6wcdx"]
 [ext_resource type="PackedScene" uid="uid://dg5k1bl4q80fr" path="res://GameFolder/Scenes/Player.tscn" id="3_7hl66"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://xqxthxv3q4cg" path="res://GameFolder/Scenes/ui_manager.tscn" id="14_3t82u"]
 
 [node name="level_2" type="Node2D"]
+script = ExtResource("1_4jqcd")
 
 [node name="World_2" parent="." instance=ExtResource("1_i8n20")]
 
@@ -73,7 +75,7 @@ position = Vector2(1485, 108)
 position = Vector2(514, 109)
 
 [node name="Player" parent="." instance=ExtResource("3_7hl66")]
-position = Vector2(6348, 173)
+position = Vector2(39, 90)
 
 [node name="death_area" parent="." instance=ExtResource("4_s4eqw")]
 position = Vector2(295, 266)
@@ -107,7 +109,7 @@ position = Vector2(1695, 108)
 [node name="CheckpointHolder" type="Node2D" parent="."]
 position = Vector2(3747, 104)
 
-[node name="checkpoint" parent="CheckpointHolder" instance=ExtResource("4_81ejp")]
+[node name="checkpoint1" parent="CheckpointHolder" instance=ExtResource("4_81ejp")]
 position = Vector2(-3529, -6)
 
 [node name="checkpoint2" parent="CheckpointHolder" instance=ExtResource("4_81ejp")]
@@ -118,6 +120,9 @@ position = Vector2(368, -71)
 
 [node name="checkpoint4" parent="CheckpointHolder" instance=ExtResource("4_81ejp")]
 position = Vector2(1452, 172)
+
+[node name="Marker2D" type="Marker2D" parent="CheckpointHolder"]
+position = Vector2(-3675, -5)
 
 [node name="spikes" parent="." instance=ExtResource("7_ks8eq")]
 position = Vector2(5668, 409)
