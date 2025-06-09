@@ -1,5 +1,5 @@
 extends Node
-
+#READ
 signal partidas_recibidas(partidas)
 signal progreso_recibido(progresos)
 
@@ -45,3 +45,36 @@ func _on_request_completed(result, code, headers, body):
 			print("La respuesta no fue válida. JSON:", json)
 	else:
 		print("Error HTTP:", code)
+#INSERT
+func guardar_progreso(data: Dictionary):
+	var url = "http://localhost/API_Godot/crud/Progreso_partida/insertar.php"
+
+	var json_string = JSON.stringify(data)
+	var headers = ["Content-Type: application/json"]
+	
+	_esperando = "guardar"
+	http.request_completed.connect(_on_guardar_completado, CONNECT_ONE_SHOT)
+	http.request(url, headers, HTTPClient.METHOD_POST, json_string)
+
+func _on_guardar_completado(result, code, headers, body):
+	if code == 200:
+		print("Progreso guardado correctamente.")
+	else:
+		print("Error al guardar. Código HTTP:", code)
+
+#UPDATE
+func actualizar_progreso(data: Dictionary):
+	var url = "http://localhost/API_Godot/crud/Progreso_partida/actualizar.php"
+
+	var json_string = JSON.stringify(data)
+	var headers = ["Content-Type: application/json"]
+
+	_esperando = "actualizar"
+	http.request_completed.connect(_on_actualizar_completado, CONNECT_ONE_SHOT)
+	http.request(url, headers, HTTPClient.METHOD_POST, json_string)
+
+func _on_actualizar_completado(result, code, headers, body):
+	if code == 200:
+		print("Progreso actualizado correctamente.")
+	else:
+		print("Error al actualizar. Código HTTP:", code)
