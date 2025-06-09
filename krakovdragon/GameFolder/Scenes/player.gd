@@ -18,7 +18,6 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("atacar"):
 		attack()
-	print("Checkpoint actual: ",GameManager.current_checkpoint)
 
 func attack():
 	var overlaping_objects =$AttackArea.get_overlapping_areas()

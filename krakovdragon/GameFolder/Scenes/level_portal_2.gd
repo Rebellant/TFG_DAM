@@ -9,6 +9,3 @@ func _process(delta):
 		$AnimatedSprite2D.play("portal_on")
 		$Hitbox/CollisionShape2D.disabled = false
 		$AnimatedSprite2D.show()
-
-func _on_hitbox_area_entered(area):
-	get_tree().change_scene_to_file("res://GameFolder/Levels/nivel_2.tscn")

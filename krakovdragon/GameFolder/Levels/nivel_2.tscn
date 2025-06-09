@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://8428bvvq2m8e" path="res://GameFolder/Enemies/spikes.tscn" id="7_ks8eq"]
 [ext_resource type="PackedScene" uid="uid://biieo5b8jkxeu" path="res://GameFolder/Scenes/mushroom.tscn" id="8_d3aw3"]
 [ext_resource type="PackedScene" uid="uid://b3ae2isvgxgw" path="res://GameFolder/Scenes/chest.tscn" id="9_yxpjy"]
-[ext_resource type="PackedScene" uid="uid://dp81fuax0jmoc" path="res://GameFolder/Scenes/level_portal.tscn" id="10_m4v57"]
 [ext_resource type="PackedScene" uid="uid://bh0f6lxw331ob" path="res://GameFolder/Scenes/falling_spikes.tscn" id="11_2piyl"]
 [ext_resource type="PackedScene" uid="uid://vaqyilt0bm6g" path="res://GameFolder/Scenes/npc_2.tscn" id="11_gwg2c"]
 [ext_resource type="PackedScene" uid="uid://d0skye4u5dbmd" path="res://GameFolder/Scenes/health_up.tscn" id="12_jxh1e"]
 [ext_resource type="PackedScene" uid="uid://xqxthxv3q4cg" path="res://GameFolder/Scenes/ui_manager.tscn" id="14_3t82u"]
+[ext_resource type="PackedScene" uid="uid://dap7co2rqcn6y" path="res://GameFolder/Scenes/level_portal_2.tscn" id="15_w0air"]
 
 [node name="level_2" type="Node2D"]
 script = ExtResource("1_4jqcd")
@@ -74,55 +74,11 @@ position = Vector2(1485, 108)
 [node name="JumpMushroom6" parent="JumpHolder" instance=ExtResource("2_6wcdx")]
 position = Vector2(514, 109)
 
-[node name="Player" parent="." instance=ExtResource("3_7hl66")]
-position = Vector2(39, 90)
-
 [node name="death_area" parent="." instance=ExtResource("4_s4eqw")]
 position = Vector2(295, 266)
 
 [node name="death_area2" parent="." instance=ExtResource("4_s4eqw")]
 position = Vector2(1897, 266)
-
-[node name="EnemiHolder" type="Node2D" parent="."]
-
-[node name="sprout" parent="EnemiHolder" instance=ExtResource("6_xnaiy")]
-position = Vector2(4226, 264)
-
-[node name="sprout2" parent="EnemiHolder" instance=ExtResource("6_xnaiy")]
-position = Vector2(4886, 333)
-
-[node name="sprout4" parent="EnemiHolder" instance=ExtResource("6_xnaiy")]
-position = Vector2(5458, 226)
-
-[node name="sprout3" parent="EnemiHolder" instance=ExtResource("6_xnaiy")]
-position = Vector2(4582, 302)
-
-[node name="Mushroom" parent="EnemiHolder" instance=ExtResource("8_d3aw3")]
-position = Vector2(3747, 104)
-
-[node name="Mushroom3" parent="EnemiHolder" instance=ExtResource("8_d3aw3")]
-position = Vector2(4344, 105)
-
-[node name="Mushroom2" parent="EnemiHolder" instance=ExtResource("8_d3aw3")]
-position = Vector2(1695, 108)
-
-[node name="CheckpointHolder" type="Node2D" parent="."]
-position = Vector2(3747, 104)
-
-[node name="checkpoint1" parent="CheckpointHolder" instance=ExtResource("4_81ejp")]
-position = Vector2(-3529, -6)
-
-[node name="checkpoint2" parent="CheckpointHolder" instance=ExtResource("4_81ejp")]
-position = Vector2(-2064, -7)
-
-[node name="checkpoint3" parent="CheckpointHolder" instance=ExtResource("4_81ejp")]
-position = Vector2(368, -71)
-
-[node name="checkpoint4" parent="CheckpointHolder" instance=ExtResource("4_81ejp")]
-position = Vector2(1452, 172)
-
-[node name="Marker2D" type="Marker2D" parent="CheckpointHolder"]
-position = Vector2(-3675, -5)
 
 [node name="spikes" parent="." instance=ExtResource("7_ks8eq")]
 position = Vector2(5668, 409)
@@ -151,9 +107,6 @@ position = Vector2(5229, 296)
 [node name="Chest3" parent="." instance=ExtResource("9_yxpjy")]
 position = Vector2(5181, 296)
 
-[node name="level_portal" parent="." instance=ExtResource("10_m4v57")]
-position = Vector2(6558, 214)
-
 [node name="FallingSpikes" parent="." instance=ExtResource("11_2piyl")]
 position = Vector2(5742, 89)
 
@@ -177,5 +130,44 @@ position = Vector2(6342, 224)
 
 [node name="NPC2" parent="." instance=ExtResource("11_gwg2c")]
 position = Vector2(6456, 219)
+
+[node name="checkpoint1" parent="." instance=ExtResource("4_81ejp")]
+position = Vector2(218, 98)
+
+[node name="checkpoint2" parent="." instance=ExtResource("4_81ejp")]
+position = Vector2(1683, 97)
+
+[node name="checkpoint3" parent="." instance=ExtResource("4_81ejp")]
+position = Vector2(4115, 33)
+
+[node name="checkpoint4" parent="." instance=ExtResource("4_81ejp")]
+position = Vector2(5199, 276)
+
+[node name="sprout" parent="." instance=ExtResource("6_xnaiy")]
+position = Vector2(4226, 264)
+
+[node name="sprout2" parent="." instance=ExtResource("6_xnaiy")]
+position = Vector2(4886, 333)
+
+[node name="sprout4" parent="." instance=ExtResource("6_xnaiy")]
+position = Vector2(5458, 226)
+
+[node name="sprout3" parent="." instance=ExtResource("6_xnaiy")]
+position = Vector2(4582, 302)
+
+[node name="Mushroom" parent="." instance=ExtResource("8_d3aw3")]
+position = Vector2(3747, 104)
+
+[node name="Mushroom3" parent="." instance=ExtResource("8_d3aw3")]
+position = Vector2(4344, 105)
+
+[node name="Mushroom2" parent="." instance=ExtResource("8_d3aw3")]
+position = Vector2(1695, 108)
+
+[node name="level_portal_2" parent="." instance=ExtResource("15_w0air")]
+position = Vector2(6535, 224)
+
+[node name="Player" parent="." instance=ExtResource("3_7hl66")]
+position = Vector2(94, 95)
 
 [node name="UI_Manager" parent="." instance=ExtResource("14_3t82u")]

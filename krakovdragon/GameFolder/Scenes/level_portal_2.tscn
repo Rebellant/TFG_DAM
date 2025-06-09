@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://dap7co2rqcn6y"]
+
+[ext_resource type="Texture2D" uid="uid://cln1p33fbfxrx" path="res://assetsGodot/portal/Dimensional_Portal.png" id="1_akpee"]
+[ext_resource type="Script" path="res://GameFolder/Scenes/level_portal_2.gd" id="1_mp04p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ngka3"]
+height = 42.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g8aj"]
+atlas = ExtResource("1_akpee")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5kke"]
+atlas = ExtResource("1_akpee")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twlxe"]
+atlas = ExtResource("1_akpee")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nog6d"]
+atlas = ExtResource("1_akpee")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo7gm"]
+atlas = ExtResource("1_akpee")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agbx0"]
+atlas = ExtResource("1_akpee")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndl7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g8aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5kke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twlxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nog6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo7gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agbx0")
+}],
+"loop": true,
+"name": &"portal_on",
+"speed": 8.0
+}]
+
+[node name="level_portal_2" type="Node2D"]
+script = ExtResource("1_mp04p")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-18, -1)
+shape = SubResource("CapsuleShape2D_ngka3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-19, -1)
+scale = Vector2(1.40625, 1.34375)
+sprite_frames = SubResource("SpriteFrames_ndl7b")
+animation = &"portal_on"
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
