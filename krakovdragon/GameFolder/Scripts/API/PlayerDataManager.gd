@@ -1,5 +1,11 @@
 extends Node
 
+
+signal partidas_recibidas(partidas)
+signal progreso_recibido(progresos)
+
+# ... resto de ApiManager.gd ...
+
 # Variables públicas accesibles
 var datos_por_jugador: Dictionary = {}
 

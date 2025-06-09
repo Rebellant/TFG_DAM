@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjj1wq6kwwqql"]
+
+[ext_resource type="Script" path="res://GameFolder/Scripts/API/ApiManager.gd" id="1_4jdf1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource("1_4jdf1")
+
+[connection signal="partidas_recibidas" from="HTTPRequest" to="HTTPRequest" method="_on_partidas_recibidas"]
+[connection signal="progreso_recibido" from="HTTPRequest" to="HTTPRequest" method="_on_progreso_recibido"]
+[connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_request_completed"]
