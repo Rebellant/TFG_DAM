@@ -70,5 +70,6 @@ position = Vector2(-19, -1)
 scale = Vector2(1.40625, 1.34375)
 sprite_frames = SubResource("SpriteFrames_ndl7b")
 animation = &"portal_on"
+frame_progress = 0.705082
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

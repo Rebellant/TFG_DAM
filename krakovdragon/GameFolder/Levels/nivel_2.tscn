@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://8428bvvq2m8e" path="res://GameFolder/Enemies/spikes.tscn" id="7_ks8eq"]
 [ext_resource type="PackedScene" uid="uid://biieo5b8jkxeu" path="res://GameFolder/Scenes/mushroom.tscn" id="8_d3aw3"]
 [ext_resource type="PackedScene" uid="uid://b3ae2isvgxgw" path="res://GameFolder/Scenes/chest.tscn" id="9_yxpjy"]
+[ext_resource type="PackedScene" uid="uid://dp81fuax0jmoc" path="res://GameFolder/Scenes/level_portal.tscn" id="10_m4v57"]
 [ext_resource type="PackedScene" uid="uid://bh0f6lxw331ob" path="res://GameFolder/Scenes/falling_spikes.tscn" id="11_2piyl"]
 [ext_resource type="PackedScene" uid="uid://vaqyilt0bm6g" path="res://GameFolder/Scenes/npc_2.tscn" id="11_gwg2c"]
 [ext_resource type="PackedScene" uid="uid://d0skye4u5dbmd" path="res://GameFolder/Scenes/health_up.tscn" id="12_jxh1e"]
 [ext_resource type="PackedScene" uid="uid://xqxthxv3q4cg" path="res://GameFolder/Scenes/ui_manager.tscn" id="14_3t82u"]
-[ext_resource type="PackedScene" uid="uid://dap7co2rqcn6y" path="res://GameFolder/Scenes/level_portal_2.tscn" id="15_w0air"]
 
 [node name="level_2" type="Node2D"]
 script = ExtResource("1_4jqcd")
@@ -164,10 +164,10 @@ position = Vector2(4344, 105)
 [node name="Mushroom2" parent="." instance=ExtResource("8_d3aw3")]
 position = Vector2(1695, 108)
 
-[node name="level_portal_2" parent="." instance=ExtResource("15_w0air")]
-position = Vector2(6535, 224)
-
 [node name="Player" parent="." instance=ExtResource("3_7hl66")]
-position = Vector2(94, 95)
+position = Vector2(6342, 176)
 
 [node name="UI_Manager" parent="." instance=ExtResource("14_3t82u")]
+
+[node name="level_portal" parent="." instance=ExtResource("10_m4v57")]
+position = Vector2(6584, 217)
