@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ib5n0mgq58n" path="res://assetsGodot/UI/Button Pack - ok_lavender/Individual Frames/[6] Silver/[2] Clicked.png" id="4_ed3w4"]
 [ext_resource type="Texture2D" uid="uid://dtj2g0dudhk4g" path="res://assetsGodot/UI/Button Pack - ok_lavender/Individual Frames/[6] Silver/[3] Hover.png" id="5_ocv4s"]
 
-[sub_resource type="FontFile" id="FontFile_uma2j"]
+[sub_resource type="FontFile" id="FontFile_lwkcd"]
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -204,7 +204,7 @@ cache/0/61/0/underline_thickness = 0.0
 cache/0/61/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_sfbsu"]
-font = SubResource("FontFile_uma2j")
+font = SubResource("FontFile_lwkcd")
 font_size = 60
 font_color = Color(0.04, 0.04, 0.04, 1)
 

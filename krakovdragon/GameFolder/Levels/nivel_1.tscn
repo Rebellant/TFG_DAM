@@ -552,7 +552,7 @@ position = Vector2(2222, -263)
 monitorable = false
 
 [node name="Player" parent="." instance=ExtResource("5_rky21")]
-position = Vector2(110, 4)
+position = Vector2(109, -1)
 
 [node name="checkpoint2" parent="." instance=ExtResource("6_i2an8")]
 position = Vector2(1200, 2)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://xqxthxv3q4cg"]
+[gd_scene load_steps=6 format=3 uid="uid://xqxthxv3q4cg"]
 
 [ext_resource type="Texture2D" uid="uid://xaknwi7mcm66" path="res://assetsGodot/objetos/coins/Coins/[1] Gold/1.png" id="1_h76hg"]
 [ext_resource type="Script" path="res://GameFolder/Scripts/UI/ui_manager.gd" id="1_wjeal"]
 [ext_resource type="Texture2D" uid="uid://bcq1h6y33utnf" path="res://assetsGodot/UI/healthbar/healthbarUnder.png" id="3_d8ivf"]
 [ext_resource type="Texture2D" uid="uid://dcxt04p2bwp51" path="res://assetsGodot/UI/healthbar/healthbarProgress.png" id="4_mj0vu"]
+[ext_resource type="Texture2D" uid="uid://eo51r4lgycxa" path="res://assetsGodot/UI/Border All 7.png" id="5_ej0vl"]
 
 [node name="UI_Manager" type="CanvasLayer"]
 script = ExtResource("1_wjeal")
@@ -29,9 +30,85 @@ text = "0"
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = 9.0
+offset_left = 4.0
 offset_top = 32.0
-offset_right = 177.0
-offset_bottom = 87.0
+offset_right = 156.0
+offset_bottom = 59.0
+nine_patch_stretch = true
 texture_under = ExtResource("3_d8ivf")
 texture_progress = ExtResource("4_mj0vu")
+
+[node name="PauseMenu" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -65.0
+offset_right = 41.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseMenu"]
+position = Vector2(46, 52)
+scale = Vector2(2.92489, 3.78712)
+texture = ExtResource("5_ej0vl")
+offset = Vector2(0, 11)
+hframes = 10
+vframes = 8
+frame = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -35.0
+offset_right = 78.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+alignment = 1
+
+[node name="btn_resume" type="Button" parent="PauseMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 1
+
+[node name="btn_save" type="Button" parent="PauseMenu/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Save"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+alignment = 1
+
+[node name="btn_mainMenu" type="Button" parent="PauseMenu/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Main Menu
+"
+
+[connection signal="pressed" from="PauseMenu/VBoxContainer/HBoxContainer/btn_resume" to="." method="_on_btn_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/HBoxContainer2/btn_save" to="." method="_on_btn_save_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/HBoxContainer3/btn_mainMenu" to="." method="_on_btn_main_menu_pressed"]
