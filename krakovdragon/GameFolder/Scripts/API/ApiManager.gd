@@ -78,3 +78,19 @@ func _on_actualizar_completado(result, code, headers, body):
 		print("Progreso actualizado correctamente.")
 	else:
 		print("Error al actualizar. Código HTTP:", code)
+
+#DELETE
+func borrar_progreso(id_progreso: int):
+	var url = "http://localhost/API_Godot/crud/Progreso_partida/borrar.php"
+	var json_string = JSON.stringify({ "id_progreso": id_progreso })
+	var headers = ["Content-Type: application/json"]
+
+	_esperando = "borrar"
+	http.request_completed.connect(_on_borrar_completado, CONNECT_ONE_SHOT)
+	http.request(url, headers, HTTPClient.METHOD_POST, json_string)
+
+func _on_borrar_completado(result, code, headers, body):
+	if code == 200:
+		print("Progreso borrado correctamente.")
+	else:
+		print("Error al borrar. Código HTTP:", code)

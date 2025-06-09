@@ -5,7 +5,10 @@ var progreso_guardado: Dictionary = {}
 func _ready():
 	#ApiManager.progreso_recibido.connect(_cuando_llega_el_progreso) PARA LEER
 	#ApiManager.leer_progreso_por_partida(1)  # Cambia a tu ID real PARA LEER
-	actualizar_datos()
+	#actualizar_datos() #ACTUALIZAR DATOS
+	borrar_progreso_Partida()
+func borrar_progreso_Partida():
+	ApiManager.borrar_progreso(8)  # Cambia por el ID real que quieras eliminar
 
 
 func actualizar_datos(): #ACTUALIZAR DATOS
