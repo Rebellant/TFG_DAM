@@ -262,28 +262,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="btnContinuar" type="TextureButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-texture_normal = ExtResource("3_5yly4")
-texture_pressed = ExtResource("4_ed3w4")
-texture_hover = ExtResource("5_ocv4s")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/btnContinuar"]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 0
-offset_left = 160.5
-offset_top = -20.0
-offset_right = 210.5
-offset_bottom = 88.0
-text = "Continuar
-"
-label_settings = SubResource("LabelSettings_sfbsu")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
 [node name="btnExit" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -308,5 +286,4 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/btnPlay" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/btnContinuar" to="." method="_on_btn_continuar_pressed"]
 [connection signal="pressed" from="VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]

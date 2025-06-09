@@ -218,6 +218,7 @@ grow_vertical = 2
 script = ExtResource("1_7q58p")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 stream = ExtResource("1_l2wye")
@@ -239,7 +240,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 36
 
-[node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
+[node name="btn_newGame" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = ExtResource("2_lmms7")
@@ -247,7 +248,7 @@ texture_pressed = ExtResource("3_qqte7")
 texture_hover = ExtResource("4_4tutl")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/TextureButton2"]
+[node name="Label" type="Label" parent="VBoxContainer/btn_newGame"]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 0
 offset_left = 2.5
@@ -260,7 +261,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureButton3" type="TextureButton" parent="VBoxContainer"]
+[node name="btn_continue" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = ExtResource("2_lmms7")
@@ -268,7 +269,7 @@ texture_pressed = ExtResource("3_qqte7")
 texture_hover = ExtResource("4_4tutl")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/TextureButton3"]
+[node name="Label" type="Label" parent="VBoxContainer/btn_continue"]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 0
 offset_left = 160.5
@@ -282,7 +283,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureButton4" type="TextureButton" parent="VBoxContainer"]
+[node name="btn_back" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = ExtResource("2_lmms7")
@@ -290,7 +291,7 @@ texture_pressed = ExtResource("3_qqte7")
 texture_hover = ExtResource("4_4tutl")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/TextureButton4"]
+[node name="Label" type="Label" parent="VBoxContainer/btn_back"]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 0
 offset_left = 160.5
@@ -304,4 +305,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[connection signal="pressed" from="VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_newGame" to="." method="_on_btn_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_continue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_back" to="." method="_on_btn_back_pressed"]
