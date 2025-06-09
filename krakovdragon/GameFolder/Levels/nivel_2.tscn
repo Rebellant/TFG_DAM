@@ -129,7 +129,7 @@ position = Vector2(4216, 120)
 position = Vector2(6342, 224)
 
 [node name="NPC2" parent="." instance=ExtResource("11_gwg2c")]
-position = Vector2(6456, 219)
+position = Vector2(6459, 224)
 
 [node name="checkpoint1" parent="." instance=ExtResource("4_81ejp")]
 position = Vector2(218, 98)
@@ -165,7 +165,7 @@ position = Vector2(4344, 105)
 position = Vector2(1695, 108)
 
 [node name="Player" parent="." instance=ExtResource("3_7hl66")]
-position = Vector2(6342, 176)
+position = Vector2(22, 93)
 
 [node name="UI_Manager" parent="." instance=ExtResource("14_3t82u")]
 

@@ -48,6 +48,7 @@ func on_dialogue_ended(dialogue):
 
 func disappear():
 	if GameManager.dissapear_npc2 == true:
+		GameManager.player_in_lvl = 3
 		$AnimatedSprite2D.play("death")
 		await $AnimatedSprite2D.animation_finished
 		queue_free()

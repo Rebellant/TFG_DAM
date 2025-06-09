@@ -2,6 +2,7 @@
 if not GameManager.knows_npc_lvl1
 	set GameManager.level_portal_active = true
 	set GameManager.knows_npc_lvl1 = true
+	set GameManager.player_in_lvl = 2
 	Nathan: Menos mal que le encuentro noble caballero..
 	Lord Bobius: ¡Nathan! ¿Que ha ocurrido aquí? Y lo más importante ¿Donde está todo el mundo?
 	Nathan: El Dragón.. Alguien o algo lo ha despertado y ha vuelto para arrasar con todo a su paso, soy de los pocos que no huyeron y quedaron con vida tras el ataque.

@@ -1,6 +1,6 @@
 extends Node2D
 
-var counter = 1
+
 func _process(delta):
 	if GameManager.level_portal_active == false:
 		$AnimatedSprite2D.hide()
@@ -12,7 +12,9 @@ func _process(delta):
 
 func _on_hitbox_area_entered(area):
 	
-	if counter == 1:
+	if GameManager.player_in_lvl == 1:
+		get_tree().change_scene_to_file("res://GameFolder/Levels/nivel_1.tscn")
+	if GameManager.player_in_lvl == 2:
 		get_tree().change_scene_to_file("res://GameFolder/Levels/nivel_2.tscn")
-	elif counter == 2:
+	if GameManager.player_in_lvl == 3:
 		get_tree().change_scene_to_file("res://GameFolder/Levels/nivel_3.tscn")
