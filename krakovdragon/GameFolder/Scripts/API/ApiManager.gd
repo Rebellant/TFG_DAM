@@ -2,6 +2,7 @@ extends Node
 #READ
 signal partidas_recibidas(partidas)
 signal progreso_recibido(progresos)
+signal progreso_actualizado()
 
 var http := HTTPRequest.new()
 var _esperando := ""  # Para saber si estamos esperando "partidas" o "progreso"
@@ -76,6 +77,7 @@ func actualizar_progreso(data: Dictionary):
 func _on_actualizar_completado(result, code, headers, body):
 	if code == 200:
 		print("Progreso actualizado correctamente.")
+		emit_signal("progreso_actualizado")
 	else:
 		print("Error al actualizar. Código HTTP:", code)
 

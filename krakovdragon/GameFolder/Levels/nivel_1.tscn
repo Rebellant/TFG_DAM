@@ -632,6 +632,3 @@ position = Vector2(2030, -148)
 
 [node name="HealthUp2" parent="." instance=ExtResource("15_mhrgi")]
 position = Vector2(2290, -141)
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(136, 6)

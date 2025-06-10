@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var marker_2d: Marker2D = $Marker2D
 @onready var checkpoint: Checkpoint = $checkpoint
 @onready var checkpoint_2: Checkpoint = $checkpoint2
 @onready var player: Player = $Player
@@ -10,7 +9,6 @@ var checkpoint_list: Array
 func _ready() -> void:
 	# Lista de checkpoints en orden
 	checkpoint_list = [
-		marker_2d,
 		checkpoint,
 		checkpoint_2
 	]
@@ -25,4 +23,5 @@ func _ready() -> void:
 		move_player_to_spawnpoint(0)
 
 func move_player_to_spawnpoint(indice: int) -> void:
-	player.global_position = checkpoint_list[indice].global_position
+	if player.global_position == null:
+		player.global_position = checkpoint_list[indice].global_position

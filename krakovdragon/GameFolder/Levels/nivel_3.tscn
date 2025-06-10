@@ -67,6 +67,3 @@ position = Vector2(95, 52)
 
 [node name="necromacer" parent="." instance=ExtResource("8_1kp3t")]
 position = Vector2(1816, -117)
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(107, 66)

@@ -23,9 +23,6 @@ func update_coin_display(gained_coins):
 
 func _on_btn_resume_pressed() -> void:
 	GameManager.pause_play()
-
-
-
 	
 
 
@@ -34,8 +31,8 @@ func _on_btn_main_menu_pressed() -> void:
 
 func _on_btn_save_pressed() -> void:
 	var datos_actualizados = {
-		"id_partida": 1,     # Reemplaza por el ID real de la partida
-		"id_progreso": 1,    # Reemplaza por el ID real del progreso
+		"id_partida": 1,    
+		"id_progreso": 1,    
 		"nivel_actual": GameManager.player_in_lvl,
 		"checkpoint": GameManager.checkpoint_counter,
 		"monedas": GameManager.coins,
