@@ -41,6 +41,8 @@ func take_damage(damage_amount:int):
 	$AnimationPlayer.play("hurt")
 	get_node("HealthBar").update_healthbar(health,max_health)
 	if health <= 0:
+		GameManager.final_boss_dead = true
+		GameManager.enemies_killed +=1
 		die()
 
 func die():

@@ -11,7 +11,7 @@ func _process(delta):
 		$AnimatedSprite2D.show()
 
 func _on_hitbox_area_entered(area):
-	
+	GameManager.checkpoint_counter = 0
 	if GameManager.player_in_lvl == 1:
 		get_tree().change_scene_to_file("res://GameFolder/Levels/nivel_1.tscn")
 	if GameManager.player_in_lvl == 2:

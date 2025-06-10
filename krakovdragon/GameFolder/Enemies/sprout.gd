@@ -40,6 +40,7 @@ func take_damage(damage_amount:int):
 	get_node("HealthBar").update_healthbar(health,max_health)
 	if health <= 0:
 		die()
+		GameManager.enemies_killed +=1
 
 func die():
 	player_in_area = false

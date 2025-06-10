@@ -36,10 +36,10 @@ position = Vector2(507, -39)
 position = Vector2(528, -39)
 
 [node name="checkpoint" parent="." instance=ExtResource("4_8c3aw")]
-position = Vector2(1093, 67)
+position = Vector2(273, 83)
 
 [node name="checkpoint2" parent="." instance=ExtResource("4_8c3aw")]
-position = Vector2(296, 83)
+position = Vector2(1093, 66)
 
 [node name="HealthUp" parent="." instance=ExtResource("5_h8sci")]
 position = Vector2(2123, -116)
@@ -67,3 +67,6 @@ position = Vector2(95, 52)
 
 [node name="necromacer" parent="." instance=ExtResource("8_1kp3t")]
 position = Vector2(1816, -117)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(107, 66)

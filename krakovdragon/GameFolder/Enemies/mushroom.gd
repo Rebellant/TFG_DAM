@@ -50,6 +50,7 @@ func take_damage(damage_amount:int):
 	$AnimatedSprite2D.play("hit")
 	get_node("HealthBar").update_healthbar(health,max_health)
 	if health <= 0:
+		GameManager.enemies_killed +=1
 		die()
 
 func _on_attack_area_area_exited(area:):

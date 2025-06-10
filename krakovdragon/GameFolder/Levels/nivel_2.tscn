@@ -171,3 +171,6 @@ position = Vector2(22, 93)
 
 [node name="level_portal" parent="." instance=ExtResource("10_m4v57")]
 position = Vector2(6584, 217)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(100, 109)

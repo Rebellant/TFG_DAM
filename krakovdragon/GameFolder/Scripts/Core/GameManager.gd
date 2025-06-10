@@ -20,7 +20,7 @@ var dissapear_npc2 = false
 #GAME PROGRESS VARS
 var final_boss_dead = false
 var coins : int
-var checkpoint_counter=0
+var checkpoint_counter= 0
 var player_in_lvl=1
 var enemies_killed : int
 
