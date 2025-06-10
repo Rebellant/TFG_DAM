@@ -1,5 +1,5 @@
 extends Node
-
+#ESTA ES MI CLASE DE EJEMPLO PARA PROBAR EL CRUD DE MI API 
 var progreso_guardado: Dictionary = {}
 
 func _ready():

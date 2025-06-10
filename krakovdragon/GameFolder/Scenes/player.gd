@@ -23,7 +23,7 @@ func attack():
 	var overlaping_objects =$AttackArea.get_overlapping_areas()
 	for area in overlaping_objects:
 		if area.get_parent().is_in_group("can_die_enemy"):
-			area.get_parent().take_damage(20)
+			area.get_parent().take_damage(40)
 	
 	attacking = true
 	$AnimatedSprite2D.play("attack") 

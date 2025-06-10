@@ -25,9 +25,23 @@ func _on_btn_resume_pressed() -> void:
 	GameManager.pause_play()
 
 
-func _on_btn_save_pressed() -> void:
-	pass # Replace with function body.
+
+	
 
 
 func _on_btn_main_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://GameFolder/Scenes/menu.tscn")
+
+func _on_btn_save_pressed() -> void:
+	var datos_actualizados = {
+		"id_partida": 1,     # Reemplaza por el ID real de la partida
+		"id_progreso": 1,    # Reemplaza por el ID real del progreso
+		"nivel_actual": GameManager.player_in_lvl,
+		"checkpoint": GameManager.checkpoint_counter,
+		"monedas": GameManager.coins,
+		"enemigos_derrotados": GameManager.enemies_killed,
+		"jefe_derrotado": GameManager.final_boss_dead
+	}
+
+	ApiManager.actualizar_progreso(datos_actualizados)
+	print("Progreso guardado.")

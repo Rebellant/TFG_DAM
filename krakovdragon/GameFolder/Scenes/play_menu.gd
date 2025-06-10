@@ -35,10 +35,9 @@ func _on_btn_new_game_pressed():
 
 func _on_btn_continue_pressed():
 	if not datos_listos:
-		print("❌ Los datos aún no están listos")
+		print("Los datos aún no están listos")
 		return
 
-	# Aquí los datos ya están cargados con precisión
 	get_tree().change_scene_to_file("res://GameFolder/Levels/nivel_%d.tscn" % GameManager.player_in_lvl)
 	
 
