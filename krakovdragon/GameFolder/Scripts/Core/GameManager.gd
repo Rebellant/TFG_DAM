@@ -22,6 +22,8 @@ var final_boss_dead = false
 var coins : int
 var checkpoint_counter=0
 var player_in_lvl=1
+var enemies_killed : int
+
 var current_checkpoint: Checkpoint
 
 #FUNCS
